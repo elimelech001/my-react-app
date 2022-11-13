@@ -1,9 +1,9 @@
 import React from "react";
+import { user } from "./hooks";
+
 function Info() {
-  const user = JSON.parse(localStorage.getItem("user"));
   let infrmation = Object.entries(user).filter(e=> typeof e[1] !== "object");
-  let adress = Object.entries(user.address).filter(e=> typeof e[1] !== "object");
-  let company = Object.entries(user.company);
+ 
 
   return (
     <div className="container ">

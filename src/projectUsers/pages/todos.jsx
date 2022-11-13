@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import fetchData from "./fetch";
-import sorting from "./sort";
+import sorting from "./hooks";
+import { user } from "./hooks";
 
 function Todos() {
-  const user = JSON.parse(localStorage.getItem("user"));
   const [value, setValue] = useState("completed");
   const [random, setRandom] = useState(false);
   const [sortDown, setSortDown] = useState(false);

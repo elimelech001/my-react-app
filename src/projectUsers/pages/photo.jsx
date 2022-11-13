@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import fetchData from "./fetch";
+
 function Photo() {
-  const [min, setMax] = useState(1);
-  const [slideShow, setSlideShow] = useState(1);
+  const [min, setMin] = useState(1);
   let { albumId } = useParams();
   const albumData = fetchData(`albums/${albumId}`).data;
   const photos = fetchData(`albums/${albumId}/photos`).data;
-  const cardsPresented = 5;
+  const currentCards = 5;
   const filterdPhotos = photos.filter(
-    (e, i) => i >= min && i < min + cardsPresented
+    (e, i) => i >= min && i < min + currentCards
   );
   
   return (
@@ -25,20 +25,19 @@ function Photo() {
         </div>
         <br />
         {filterdPhotos.map((e, i) => (
-          <>
+         
             <img
               key={i}
               className="img-thumbnail"
               src={e.thumbnailUrl}
               alt=""
             />
-          </>
         ))}
         <br />
         <button
           className="btn btn-outline-primary"
           onClick={() =>
-            setMax(min - cardsPresented > 0 ? min - cardsPresented : min)
+            setMin(min - currentCards > 0 ? min - currentCards : min)
           }
         >
           previes
@@ -46,8 +45,8 @@ function Photo() {
         <button
           className="btn btn-outline-primary"
           onClick={() =>
-            setMax(
-              min + cardsPresented < photos.length ? min + cardsPresented : min
+            setMin(
+              min + currentCards < photos.length ? min + currentCards : min
             )
           }
         >

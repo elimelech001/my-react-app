@@ -1,7 +1,4 @@
-import Alert from "@mui/material/Alert";
-import Stack from "@mui/material/Stack";
 import React from "react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import fetchData from "./fetch";
 
@@ -19,8 +16,8 @@ function LogIn() {
     e.preventDefault();
 
     const userInfo = data.find((e) => e.username === name.value);
-    if (!userInfo) return alert('username dosent match')
-    if (!checkPassword(userInfo)) return alert("password dosnt match")
+    if (!userInfo) return alert('username not found')
+    if (!checkPassword(userInfo)) return alert("password dosn't match username")
 
     localStorage.setItem("user", JSON.stringify(userInfo));
     navigate(`/users/${userInfo.id}`);
@@ -60,3 +57,4 @@ function LogIn() {
 }
 
 export default LogIn;
+

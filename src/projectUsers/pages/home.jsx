@@ -1,10 +1,9 @@
 import React from "react";
 import { NavLink, Link, Navigate, Outlet, useParams } from "react-router-dom";
+import { user } from "./hooks";
 
 function Home() {
-  const user = JSON.parse(localStorage.getItem("user"));
   const { userid } = useParams();
-  //  console.log(userid,user.id);
   if (!user || `${userid}` !== `${user.id}`) {
     return <Navigate to="/login" />;
   }

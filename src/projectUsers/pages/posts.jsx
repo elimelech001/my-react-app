@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import fetchData from "./fetch";
+import { user } from "./hooks";
 
 function Posts() {
-  const user = JSON.parse(localStorage.getItem("user"));
   const { data, loading } = fetchData(`user/${user.id}/posts/`);
 
   return (

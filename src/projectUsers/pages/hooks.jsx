@@ -14,3 +14,5 @@ export default function sorting(arr, value, sortDown, random) {
   });
   return newArray;
 }
+const user = JSON.parse(localStorage.getItem("user"));
+export {user} 
