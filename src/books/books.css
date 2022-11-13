@@ -1,0 +1,21 @@
+.onshelf{
+    background-color: rgb(218, 195, 240);
+}
+.likes{
+    font-size: 20px;
+    color: red;
+}
+.border{
+    border: 2px solid red;
+    width: 300px;
+    pointer-events: auto;
+    min-height: 200px;
+    background-color: aquamarine;
+}
+.displayNone{
+    display: none;
+}
+.flex{
+display: flex;
+flex-wrap: wrap;
+}
